@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mysql_db-local:
+    container_name: mysql_db-local
+    image: mysql
+    environment:
+      MYSQL_DATABASE: online_shopping
+      MYSQL_USER: user
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    restart: always
+  inventory-service:
+    depends_on:
+      - mysql_db-local
+    restart: always
+    # will build ./docker/workaround/Dockerfile
+    build: .
+    working_dir: /inventory
+    volumes:
+      - ./:/inventory
+      - ~/.m2:/root/.m2
+    expose:
+      - "8080"
+    command: "mvn clean spring-boot:run"
