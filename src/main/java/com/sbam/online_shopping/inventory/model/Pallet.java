@@ -23,7 +23,7 @@ public class Pallet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID palletId;
+    private long palletId;
     private int palletNumber;
     private int totalSize;
     private int totalItems;

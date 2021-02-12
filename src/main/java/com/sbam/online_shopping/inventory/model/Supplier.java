@@ -29,7 +29,7 @@ public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "supplier_id")
-    private UUID supplierId;
+    private long supplierId;
     private String name;
     private String description;
 

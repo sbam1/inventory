@@ -24,7 +24,7 @@ public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "brand_id")
-    private UUID brandId;
+    private long brandId;
 
     private String name;
     private String description;

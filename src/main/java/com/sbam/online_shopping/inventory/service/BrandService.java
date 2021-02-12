@@ -20,7 +20,7 @@ public class BrandService {
         this.brandRepository = brandRepository;
     }
 
-    public BrandDto getBrand(UUID brandId) {
+    public BrandDto getBrand(long brandId) {
         Optional<Brand> brand = brandRepository.findById(brandId);
         return brand.map(value -> new BrandDto(value.getName(), value.getDescription())).orElse(null);
 
@@ -38,7 +38,6 @@ public class BrandService {
 
     public BrandDto save(BrandDto dto) {
         Brand brand = new Brand();
-        brand.setBrandId(UUID.randomUUID());
         brand.setName(dto.getName());
         brand.setDescription(dto.getDescription());
 

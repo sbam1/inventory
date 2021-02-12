@@ -23,7 +23,7 @@ public class Product {
 
     @Id
     @Column(name = "product_id")
-    private UUID productId;
+    private long productId;
 
     private String name;
     private String description;

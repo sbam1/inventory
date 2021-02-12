@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Setter
@@ -24,7 +23,7 @@ public class Supply {
 
     @Id
     @Column(name = "supply_id")
-    private UUID supplyId;
+    private long supplyId;
 
     private LocalDateTime supplyDate;
     private String description;

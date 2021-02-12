@@ -20,7 +20,7 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID itemId;
+    private long itemId;
     private String sku;
     private String name;
     private String description;

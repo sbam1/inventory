@@ -18,7 +18,7 @@ public class Aisle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID aisleId;
+    private long aisleId;
 
     private String name;
     private long aisleNumber;
