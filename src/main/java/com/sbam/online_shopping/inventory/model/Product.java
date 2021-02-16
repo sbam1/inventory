@@ -12,8 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Setter
@@ -28,9 +28,10 @@ public class Product {
     private String name;
     private String description;
 
+
     @ManyToOne
-    @JoinColumn(name = "fk_supply_id")
-    private Supply supply;
+    @JoinColumn(name = "fk_brand_id")
+    private Brand brand;
 
     @ManyToOne
     @JoinColumn(name = "fk_category_id")

@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Setter
@@ -29,7 +28,7 @@ public class Brand {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "brand", targetEntity= Supply.class,cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "brand", targetEntity= Product.class,cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
-    private Set<Supply> supplies;
+    private Set<Product> products;
 }

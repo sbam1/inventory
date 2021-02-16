@@ -4,16 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Setter
@@ -29,15 +26,12 @@ public class Supply {
     private String description;
     private long quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_brand_id")
-    private Brand brand;
+    @OneToOne
+    @JoinColumn(name = "fk_product_id")
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "fk_supplier_id")
     private Supplier supplier;
 
-    @OneToMany(mappedBy = "supply", targetEntity= Product.class,cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Product> products;
 }

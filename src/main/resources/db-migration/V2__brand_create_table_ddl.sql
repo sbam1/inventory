@@ -15,3 +15,18 @@ INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES
 INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (7, 'amazing electronics with high quality', 'Sony');
 INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (8, 'best Organic foods', 'Local Farm');
 INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (9, 'local pottery and vegetables', 'Ohio Farms');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (10, 'affordable fashion for all ', 'gap');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (11, 'local furniture center', 'furniture hub');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (12, 'Dell Electronics', 'Dell ');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (13, 'Lenovo Electronics', 'Lenovo');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (14, 'we supply medicine of all kinds ', 'MedSupply');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (15, 'surgical suppliers', 'Surgical suppliers');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (16, 'Express', 'Express');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (17, 'Levis', 'Levis');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (18, 'American Egle', 'American Egle');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (19, 'Nike', 'Nike');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (20, 'Adidas', 'Adidas');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (21, 'New Balance ', 'New Balance');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (22, 'Converse', 'Converse');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (23, 'Canadian Furniture', 'Canada Furniture');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (24, 'Samsung Electronics', 'Samsung Electronics');
