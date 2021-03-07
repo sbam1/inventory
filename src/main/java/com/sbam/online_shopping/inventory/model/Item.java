@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.util.UUID;
 
 @Entity
 @Setter
@@ -35,7 +34,7 @@ public class Item {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "fk_pallet_id")
-    private Pallet pallet;
+    @JoinColumn(name = "fk_rack_id")
+    private Rack rack;
 
 }

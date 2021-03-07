@@ -28,8 +28,10 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// https://mvnrepository.com/artifact/com.h2database/h2
 	testRuntimeOnly group: 'com.h2database', name: 'h2', version: '1.4.200'
+	compile group: 'com.github.dozermapper', name: 'dozer-core', version: '6.5.0'
+	compile group: 'com.github.dozermapper', name: 'dozer-spring-boot-starter', version: '6.5.0'
+	//compile "org.flywaydb:flyway-core:7.5.4"
 
 }
 

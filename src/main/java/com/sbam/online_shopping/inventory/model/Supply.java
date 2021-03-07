@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,8 +24,10 @@ public class Supply {
     private long supplyId;
 
     private LocalDateTime supplyDate;
+    private LocalDate estimatedDeliveryDate;
     private String description;
     private long quantity;
+    private String status;
 
     @OneToOne
     @JoinColumn(name = "fk_product_id")

@@ -13,25 +13,24 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
-public class Pallet {
+public class Rack {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long palletId;
-    private int palletNumber;
+    private long rackId;
+    private int rackNumber;
     private int totalSize;
     private int totalItems;
 
     @ManyToOne
     private Aisle aisle;
 
-    @OneToMany(mappedBy = "pallet", targetEntity= Item.class,cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "rack", targetEntity= Item.class,cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Item> items;
 

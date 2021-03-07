@@ -30,3 +30,6 @@ INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES
 INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (22, 'Converse', 'Converse');
 INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (23, 'Canadian Furniture', 'Canada Furniture');
 INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (24, 'Samsung Electronics', 'Samsung Electronics');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (29, 'Best electronic goods with high quality', 'Apple');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (34, 'best electronic goods with high quality.', 'Apple');
+INSERT INTO online_shopping_inventory.brand (brand_id, description, name) VALUES (35, 'test desc 5', 'test Brand');

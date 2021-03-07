@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,18 +21,18 @@ public class BrandService {
 
     public BrandDto getBrand(long brandId) {
         Optional<Brand> brand = brandRepository.findById(brandId);
-        return brand.map(value -> new BrandDto(value.getName(), value.getDescription())).orElse(null);
+        return brand.map(value -> new BrandDto(value.getBrandId(), value.getName(), value.getDescription())).orElse(null);
 
     }
 
     public BrandDto getBrand(String brandName) {
         Optional<Brand> brand = brandRepository.findByName(brandName);
-        return brand.map(value -> new BrandDto(value.getName(), value.getDescription())).orElse(null);
+        return brand.map(value -> new BrandDto(value.getBrandId(), value.getName(), value.getDescription())).orElse(null);
 
     }
 
     public List<BrandDto> getBrands() {
-        return brandRepository.findAll().stream().map(it -> new BrandDto(it.getName(), it.getDescription())).collect(Collectors.toList());
+        return brandRepository.findAll().stream().map(it -> new BrandDto(it.getBrandId(), it.getName(), it.getDescription())).collect(Collectors.toList());
     }
 
     public BrandDto save(BrandDto dto) {
@@ -43,10 +42,15 @@ public class BrandService {
 
         Brand savedEntity = brandRepository.save(brand);
 
-        return new BrandDto(savedEntity.getName(), savedEntity.getDescription());
+        return new BrandDto(savedEntity.getBrandId(), savedEntity.getName(), savedEntity.getDescription());
     }
+
 
     public void saveAll(List<BrandDto> brandDtos) {
         brandDtos.forEach(it-> save(it));
+    }
+
+    public void deleteBrand(String brandId) {
+       brandRepository.deleteById(Long.valueOf(brandId));
     }
 }

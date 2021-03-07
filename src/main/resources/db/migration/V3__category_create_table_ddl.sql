@@ -15,3 +15,4 @@ INSERT INTO online_shopping_inventory.category (category_id, description, name) 
 INSERT INTO online_shopping_inventory.category (category_id, description, name) VALUES (7, 'furniture ', 'Furniture');
 INSERT INTO online_shopping_inventory.category (category_id, description, name) VALUES (8, 'kitchen', 'Kitchen');
 INSERT INTO online_shopping_inventory.category (category_id, description, name) VALUES (9, 'baby', 'Baby');
+INSERT INTO online_shopping_inventory.category (category_id, description, name) VALUES (10, 'Smart Watch', 'Smart Watch');
