@@ -30,17 +30,21 @@ public class RackService {
         return rackRepository.findAll().stream().map(it -> mapper.map(it, RackDto.class)).collect(Collectors.toList());
     }
 
+    public List<RackDto> getRacksByAisle(long aisleId) {
+        return rackRepository.findAllByAisle_AisleId(aisleId).stream().map(it -> mapper.map(it, RackDto.class)).collect(Collectors.toList());
+    }
+
     public RackDto getRack(long rackId) {
         return rackRepository.findById(rackId).map(it -> mapper.map(it, RackDto.class)).orElse(null);
     }
 
-    public void saveRack(RackDto rackDto) {
+    public RackDto saveRack(RackDto rackDto) {
         Rack rack = mapper.map(rackDto, Rack.class);
 
         Optional<Aisle> aisle = aisleRepository.findById(rack.getAisle().getAisleId());
         if(aisle.isPresent()) {
             rack.setAisle(aisle.get());
-            rackRepository.saveAndFlush(rack);
+            return mapper.map(rackRepository.saveAndFlush(rack), RackDto.class);
         } else {
             throw new NotFoundException("Invalid Aisle Id: " + rack.getAisle().getAisleId());
         }
