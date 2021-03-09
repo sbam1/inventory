@@ -20,7 +20,8 @@ public class RackController {
 
     @Autowired
     private RackService rackService;
-    @GetMapping(path = "inventory/aisles/racks")
+
+    @GetMapping(path = "inventory/racks")
     public ResponseEntity<RacksDto> getRacks() {
         List<RackDto> racks = rackService.getRacks();
         return ResponseEntity.status(HttpStatus.OK).body(new RacksDto(racks));

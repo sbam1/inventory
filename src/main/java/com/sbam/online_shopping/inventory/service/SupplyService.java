@@ -39,7 +39,7 @@ public class SupplyService {
         return supplyRepository.findById(supplyId).map(it -> mapper.map(it, SupplyDto.class)).orElse(null);
     }
 
-    public void createSupply(SupplyDto supplyDto) {
+    public SupplyDto createSupply(SupplyDto supplyDto) throws NotFoundException {
         Supply supply = mapper.map(supplyDto, Supply.class);
 
         Optional<Product> product = productRepository.findById(supply.getProduct().getProductId());
@@ -49,13 +49,14 @@ public class SupplyService {
         if(product.isPresent() && supplier.isPresent()) {
             supply.setSupplier(supplier.get());
             supply.setProduct(product.get());
+           return mapper.map(supplyRepository.save(supply), SupplyDto.class);
         } else {
             throw new NotFoundException("Invalid Supplier or Product, supplierId" + supply.getSupplier().getSupplierId()
             + "productId: " + supply.getProduct().getProductId());
         }
     }
 
-    private void deleteSupply(long supplyId) {
+    public void deleteSupply(long supplyId) {
         supplyRepository.deleteById(supplyId);
     }
 }

@@ -2,6 +2,7 @@ package com.sbam.online_shopping.inventory.service;
 
 import com.github.dozermapper.core.Mapper;
 import com.sbam.online_shopping.inventory.dto.AisleDto;
+import com.sbam.online_shopping.inventory.dto.ItemDto;
 import com.sbam.online_shopping.inventory.exception.NotFoundException;
 import com.sbam.online_shopping.inventory.model.Aisle;
 import com.sbam.online_shopping.inventory.model.Category;
@@ -46,6 +47,19 @@ public class AisleService {
         } else {
             throw new NotFoundException("invalid category!");
         }
+    }
+
+    public List<ItemDto> getItems(long aisleId) {
+        Optional<Aisle> aisle = aisleRepository.findById(aisleId);
+
+        if(aisle.isEmpty()) {
+            throw new NotFoundException("Aisle not found AisleId " + aisleId);
+        } else{
+            return aisle.get().getRacks().stream().flatMap(it -> it.getItems().stream())
+                    .map( it -> mapper.map(it, ItemDto.class)).collect(Collectors.toList());
+        }
+
+
     }
 
     public void deleteAisle(long aisleId) {

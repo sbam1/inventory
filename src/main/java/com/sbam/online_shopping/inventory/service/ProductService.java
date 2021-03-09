@@ -1,7 +1,9 @@
 package com.sbam.online_shopping.inventory.service;
 
 import com.github.dozermapper.core.Mapper;
+import com.sbam.online_shopping.inventory.dto.ItemDto;
 import com.sbam.online_shopping.inventory.dto.ProductDto;
+import com.sbam.online_shopping.inventory.exception.NotFoundException;
 import com.sbam.online_shopping.inventory.model.Brand;
 import com.sbam.online_shopping.inventory.model.Category;
 import com.sbam.online_shopping.inventory.model.Product;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,6 +56,14 @@ public class ProductService {
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());
         productRepository.save(product);
+    }
 
+    public List<ItemDto> getItems(long productId) {
+        Optional<Product> product = productRepository.findById(productId);
+        if(product.isEmpty()) {
+            throw new NotFoundException("product with product id : " + productId + "not exist");
+        } else {
+            return product.get().getItems().stream().map(it -> mapper.map(it, ItemDto.class)).collect(Collectors.toList());
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.sbam.online_shopping.inventory.controller;
 
+import com.sbam.online_shopping.inventory.dto.ItemDto;
+import com.sbam.online_shopping.inventory.dto.ItemsDto;
 import com.sbam.online_shopping.inventory.dto.ProductDto;
 import com.sbam.online_shopping.inventory.dto.ProductsDto;
 import com.sbam.online_shopping.inventory.service.ProductService;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -39,6 +43,12 @@ public class ProductController {
     public ResponseEntity<Void> deleteProduct(@PathVariable String productId) {
         productService.deleteProduct(Long.parseLong(productId));
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping(path = "inventory/products/{productId}")
+    public ResponseEntity<ItemsDto> getItems(@PathVariable String productId) {
+        List<ItemDto> items = productService.getItems(Long.parseLong(productId));
+        return ResponseEntity.status(HttpStatus.OK).body(new ItemsDto(items));
     }
 
 }

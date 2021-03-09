@@ -35,4 +35,7 @@ public class Rack {
     private List<Item> items;
 
 
+    public boolean isRackFull() {
+        return this.totalSize == this.totalItems;
+    }
 }

@@ -2,6 +2,8 @@ package com.sbam.online_shopping.inventory.controller;
 
 import com.sbam.online_shopping.inventory.dto.AisleDto;
 import com.sbam.online_shopping.inventory.dto.AislesDto;
+import com.sbam.online_shopping.inventory.dto.ItemDto;
+import com.sbam.online_shopping.inventory.dto.ItemsDto;
 import com.sbam.online_shopping.inventory.service.AisleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,5 +46,11 @@ public class AisleController {
     public ResponseEntity<Void> deleteBrand(@PathVariable long aisleId) {
         aisleService.deleteAisle(aisleId);
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping(path = "inventory/aisles/{aisleId}/items")
+    public ResponseEntity<ItemsDto> getItems(@PathVariable String aisleId) {
+        List<ItemDto> items = aisleService.getItems(Long.parseLong(aisleId));
+        return ResponseEntity.status(HttpStatus.OK).body(new ItemsDto(items));
     }
 }

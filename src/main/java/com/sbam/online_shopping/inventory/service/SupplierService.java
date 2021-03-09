@@ -27,9 +27,9 @@ public class SupplierService {
         return supplierRepository.findById(supplierId).map(it -> mapper.map(it, SupplierDto.class)).orElse(null);
     }
 
-    public void saveSupplier(SupplierDto supplierDto) {
+    public SupplierDto saveSupplier(SupplierDto supplierDto) {
         Supplier supplier = mapper.map(supplierDto, Supplier.class);
-        supplierRepository.saveAndFlush(supplier);
+        return mapper.map(supplierRepository.saveAndFlush(supplier), SupplierDto.class);
     }
 
     public void deleteSupply(long supplierId) {
