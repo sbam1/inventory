@@ -40,21 +40,13 @@ public class BrandServiceTest {
     @Test
     public void getByBrandName() {
 
-        BrandDto apple = new BrandDto(1,"Apple", "best electronic goods with high quality");
-        BrandDto microsoft = new BrandDto(2,"Microsoft", "best software service with cloud");
-        BrandDto google = new BrandDto(3,"Google", "awesome service with innovative mindset");
-        BrandDto tesla = new BrandDto(4,"Tesla", "future of car industry");
-        BrandDto square = new BrandDto(5,"Square", "online payment system for stores");
-        BrandDto lg = new BrandDto(6,"LG", "best electronics with affordable prise");
-        BrandDto sony = new BrandDto(7,"Sony", "amazing electronics with high quality");
-        BrandDto localFarm = new BrandDto(8, "Local Farm", "best Organic foods");
-        BrandDto ohioFarms = new BrandDto(9,"Ohio Farms", "local pottery and vegetables");
+        BrandDto apple = new BrandDto(100,"Apple2", "best electronic goods with high quality");
 
-        service.saveAll(Arrays.asList(apple, microsoft, google, tesla, square, lg, sony, localFarm, ohioFarms));
+        service.save(apple);
 
-        BrandDto brand = service.getBrand("Apple");
+        BrandDto brand = service.getBrand("Apple2");
         Assert.assertNotNull(brand);
-        Assert.assertEquals("Apple", brand.getName());
+        Assert.assertEquals("Apple2", brand.getName());
 
     }
 }

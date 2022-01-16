@@ -88,7 +88,7 @@ public class ProductServiceTest {
         productRepository.flush();
 
         List<ProductDto> products = productService.getProducts();
-        Assert.assertNotNull(product);
+        Assert.assertNotNull(products);
 
 
     }

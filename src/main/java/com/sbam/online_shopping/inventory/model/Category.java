@@ -29,11 +29,11 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", targetEntity= Product.class,cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
+            fetch = FetchType.LAZY)
     private List<Product> products;
 
     @OneToMany(mappedBy = "category", targetEntity= Aisle.class,cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
+            fetch = FetchType.LAZY)
     private List<Aisle> aisles;
 
 }

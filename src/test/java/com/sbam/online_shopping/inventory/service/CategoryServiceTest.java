@@ -48,7 +48,7 @@ public class CategoryServiceTest {
         List<CategoryDto> categories = categoryService.getCategories();
 
         Assert.assertNotNull(categories);
-        Assert.assertEquals(6, categories.size());
+        Assert.assertEquals(3, categories.size());
 
     }
 
