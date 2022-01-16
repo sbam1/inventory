@@ -3,11 +3,13 @@ package com.sbam.online_shopping.inventory.dto;
 import com.github.dozermapper.core.Mapping;
 import com.sbam.online_shopping.inventory.model.Product;
 import com.sbam.online_shopping.inventory.model.Rack;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Data
-@Builder
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class ItemDto {
 
     private long itemId;
@@ -39,8 +44,8 @@ public class ItemDto {
     @Mapping("rack.rackId")
     private long rackId;
 
-    @Mapping("rack.name")
-    private String rackName;
+    @Mapping("rack.rackNumber")
+    private String rackNumber;
 
 
 }

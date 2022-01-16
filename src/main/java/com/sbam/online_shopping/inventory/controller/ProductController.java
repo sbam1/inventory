@@ -45,7 +45,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping(path = "inventory/products/{productId}")
+    @GetMapping(path = "inventory/products/{productId}/items")
     public ResponseEntity<ItemsDto> getItems(@PathVariable String productId) {
         List<ItemDto> items = productService.getItems(Long.parseLong(productId));
         return ResponseEntity.status(HttpStatus.OK).body(new ItemsDto(items));

@@ -59,7 +59,7 @@ public class InventoryGenerator {
             throw new NotFoundException("supplier with supplier id : " + supplyDto.getSupplierId() + "not exist");
         }
 
-        List<Aisle> aisles = aisleRepository.findAllBySectionAAndCategory_CategoryId("Store", product.get().getCategory().getCategoryId());
+        List<Aisle> aisles = aisleRepository.findAllBySectionAndCategory_CategoryId("Store", product.get().getCategory().getCategoryId());
 
         AtomicReference<Long> totalItems = new AtomicReference<>(supply.getQuantity());
 

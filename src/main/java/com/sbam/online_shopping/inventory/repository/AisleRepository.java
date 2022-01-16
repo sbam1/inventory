@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface AisleRepository extends JpaRepository<Aisle, Long> {
 
-    List<Aisle> findAllBySectionAAndCategory_CategoryId(String section, long categoryId);
+    List<Aisle> findAllBySectionAndCategory_CategoryId(String section, long categoryId);
 }
